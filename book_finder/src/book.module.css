@@ -1,0 +1,28 @@
+.cards{
+    border-radius: 10px;
+
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-image: linear-gradient(to top, #cd9cf2 0%, #f6f3ff 100%);
+    align-items: center;
+    min-width: 40%;
+    padding: 10px;
+}
+
+.cards {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.267);
+    transition: 0.3s;
+}
+  
+/* On mouse-over, add a deeper shadow */
+.cards:hover {
+  box-shadow: 0 16px 18px 0 rgba(0, 0, 0, 0.459);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}

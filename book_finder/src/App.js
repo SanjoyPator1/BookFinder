@@ -13,6 +13,7 @@ const App = () => {
   useEffect(() => {
     console.log("effect has been run");
     getBooks();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[query]);
 
   const getBooks = async () => {
@@ -23,22 +24,35 @@ const App = () => {
   }
 
   const updateSearch = e => {
+    console.log("updateSearch  called")
     setSearch(e.target.value);
   }
 
+  const convertSpaces = (name) => {
+    var myStr = name;
+    var newStr = myStr.replace(/ /g, "+");
+
+    return newStr;
+  }
+
   const getSearch = e => {
+    console.log("getSearch  called")
     e.preventDefault();
-    setQuery(search);
-    setSearch('')
+    console.log("search is "+search)
+    //change spaces to +
+    const name = convertSpaces(search);
+    setQuery(name);
+    //setSearch('')
   }
 
   return (
     <div className="App">
-      <h1>Hello React</h1>
-      <form onSubmit={getSearch} className="App">
+      <h1>Hello Book Lover</h1>
+      <form onSubmit={getSearch} className="search-form">
         <input className="search-bar" type="text" value={search} onChange={updateSearch}/>
         <button className="search-button" type="submit">submit</button>
       </form>
+      <div className="book">
       {books.map(book => (
         <Books 
         key={book.title}
@@ -47,6 +61,7 @@ const App = () => {
         pub_date={book.pdate}
         />
       ))}
+      </div>
     </div>
   );
 }
