@@ -1,10 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
+const App = () => {
+
+  
+  return(
     <div className="App">
-      <h1> HellO, working??</h1>
+      <h1>Hello React</h1>
     </div>
   );
 }
