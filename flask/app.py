@@ -65,9 +65,9 @@ def sendJson(id_list):
 
 
 # # test
-lis = ["2"]
-x = sendJson(lis)
-print("x value: ", x)
+# lis = ["2"]
+# x = sendJson(lis)
+# print("x value: ", x)
 
 
 def findBook(name):
