@@ -1,22 +1,25 @@
 
 import './App.css';
 import React,{useEffect,useState} from "react";
+import Books from './books';
 
 const App = () => {
 
-  //const exampleReq = `http://127.0.0.1:5000/`
 
-  const [counter, setCounter] = useState(0);
+  const [books, setBooks]=useState([])
+
+
 
   useEffect(() => {
     console.log("effect has been run");
     getBooks();
-  },[counter]);
+  },[]);
 
   const getBooks = async () => {
-    const response = await fetch(`https://reqres.in/api/products/3`);
+    const response = await fetch(`https://book-finder-backend.herokuapp.com/home/harry`);
     const data = await response.json();
-    console.log(data);
+    console.log(data.books);
+    setBooks(data.books)
   }
 
   return (
@@ -26,7 +29,14 @@ const App = () => {
         <input className="search-bar" type="text" />
         <button className="search-button" type="submit">submit</button>
       </form>
-      <h1 onClick={()=>{setCounter(counter+1)}}>{counter}</h1>
+      {books.map(book => (
+        <Books 
+        key={book.title}
+        title={book.title}
+        author={book.author}
+        pub_date={book.pdate}
+        />
+      ))}
     </div>
   );
 }
