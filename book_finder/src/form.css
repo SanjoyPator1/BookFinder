@@ -5,7 +5,7 @@
     align-items: center;
     height: 100vh;
     background:
-    linear-gradient(to bottom right, #3C4BBD 15%, transparent),
+    linear-gradient(to bottom right, #ECA3F5 15%, transparent),
     radial-gradient(circle at 100% 0%, rgba(255,255,255,.2) 10%, transparent 20%) center center / 15px 15px,
     linear-gradient(to bottom right, #3C4BBD, #57ADD8);
 }

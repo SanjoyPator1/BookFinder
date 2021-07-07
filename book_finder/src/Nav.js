@@ -27,13 +27,13 @@ const Nav = () => {
         </div>
         <div>
         <Link className="navStyle" to='/about'>
-            <li>Display All</li>
+            display all
             </Link>
         </div>
 
         <div>
         <Link className="navStyle" to='/upload'>
-            <li>Upload</li>
+            add books
             </Link>
         </div>
 

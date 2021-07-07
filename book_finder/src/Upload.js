@@ -17,7 +17,7 @@ const Upload= () => {
                 <p><input className="input-content" type = "text" placeholder="Enter Author:" name = "author" /></p>
                 <p><input className="input-content" type = "text" placeholder="Enter Publish Date:" name = "pdate" /></p>
                 <p><input className="input-content" type = "text" placeholder="Enter tags: (Separated using a comma)" name = "tags" /></p>
-                <p><input className="submit-btn" type = "submit" value = "Submit" /></p>
+                <p><input className="submit-btn" type = "submit" value = "Submit"/></p>
             </form>
         </div>
     </div>
