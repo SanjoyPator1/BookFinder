@@ -30,6 +30,7 @@ const Home = () => {
     const response = await fetch(`https://book-finder-node.herokuapp.com/search`, {
       method: 'POST',
       headers: {
+        'Origin': 'https://book-finder-dsp.herokuapp.com/',
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       },

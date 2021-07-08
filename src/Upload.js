@@ -46,6 +46,7 @@ const Upload= () => {
     const res = await fetch(`https://book-finder-node.herokuapp.com/addBooks`, {
         method: 'POST',
         headers: {
+            'Origin': 'https://book-finder-dsp.herokuapp.com/',
             'Accept': 'application/json',
             'Content-Type': 'application/json',
         },
