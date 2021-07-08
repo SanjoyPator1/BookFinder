@@ -1,6 +1,6 @@
 # The backend of this react app is made with node
 
-This backend is public on my redo[Book-Finder-Backend-Node](https://github.com/SanjoyPator1/book_finder_backend_node).
+This backend is public on my repo [Book-Finder-Backend-Node](https://github.com/SanjoyPator1/book_finder_backend_node).
 
 # Getting Started with Create React App
 
