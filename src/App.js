@@ -27,7 +27,7 @@ const Home = () => {
   }, [query]);
 
   const getBooks = async () => {
-    const response = await fetch(`https://bookfinder-backend.herokuapp.com/search`, {
+    const response = await fetch(`https://book-finder-node.herokuapp.com/search`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

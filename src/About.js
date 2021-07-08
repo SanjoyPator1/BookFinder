@@ -16,7 +16,7 @@ const About = () => {
   }, []);
 
   const getBooks = async () => {
-    const response = await fetch(`https://bookfinder-backend.herokuapp.com/getAllBooks`);
+    const response = await fetch(`https://book-finder-node.herokuapp.com/getAllBooks`);
     const data = await response.json();
     console.log(data);
     setBooks(data)

@@ -43,7 +43,7 @@ const Upload= () => {
       "tags": tags
 }
 
-    const res = await fetch(`https://bookfinder-backend.herokuapp.com/addBooks`, {
+    const res = await fetch(`https://book-finder-node.herokuapp.com/addBooks`, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
