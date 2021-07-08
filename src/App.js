@@ -1,34 +1,45 @@
 
 import './App.css';
-import React,{useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
 import Books from './books';
-import headCus from './header.module.css'
+
 
 import Nav from './Nav'
 import About from './About'
 import Upload from './Upload';
 
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import Success from './success_page.';
+import ErrorPage from './eroor';
 
 
 const Home = () => {
 
 
-  const [books, setBooks]=useState([]);
+  const [books, setBooks] = useState([]);
   const [search, setSearch] = useState('');
   const [query, setQuery] = useState('harry')
 
   useEffect(() => {
     console.log("effect has been run");
     getBooks();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[query]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query]);
 
   const getBooks = async () => {
-    const response = await fetch(`http://65.1.85.212:5000/home/${query}`);
+    const response = await fetch(`https://bookfinder-backend.herokuapp.com/search`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        "tags": query
+    })
+    });
     const data = await response.json();
-    console.log(data.books);
-    setBooks(data.books)
+    console.log(data);
+    setBooks(data)
   }
 
   const updateSearch = e => {
@@ -46,7 +57,7 @@ const Home = () => {
   const getSearch = e => {
     console.log("getSearch  called")
     e.preventDefault();
-    console.log("search is "+search)
+    console.log("search is " + search)
     //change spaces to +
     const name = convertSpaces(search);
     setQuery(name);
@@ -59,34 +70,36 @@ const Home = () => {
       <h1 className="info">Welcome</h1>
       <h1 className="info">Book Lover</h1>
       <form onSubmit={getSearch} className="search-form">
-        <input className="search-bar" type="text" value={search} onChange={updateSearch}/>
+        <input className="search-bar" type="text" value={search} onChange={updateSearch} />
         <button className="search-button" type="submit">submit</button>
       </form>
       <div className="book">
-      {books.map(book => (
-        <Books 
-        key={book.id}
-        title={book.title}
-        author={book.author}
-        pub_date={book.pdate}
-        />
-      ))}
+        {books.map(book => (
+          <Books
+            key={book.id}
+            title={book.title}
+            author={book.author}
+            pub_date={book.pdate}
+          />
+        ))}
       </div>
     </div>
   );
 }
 
-const App =() => (
-  <div className="App">  
-        <Router>
-          <Nav/>
-          <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/upload" component={Upload} />
-          </Switch>
-        </Router>
-        
+const App = () => (
+  <div className="App">
+    <Router>
+      <Nav />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/upload" component={Upload} />
+        <Route path="/success" component={Success} />
+        <Route path="/error" component={ErrorPage} />
+      </Switch>
+    </Router>
+
   </div>
 )
 

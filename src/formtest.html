@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        console.log("scripts running");
+        const fun = async (e) => {
+            console.log("in function")
+            const titleBox = document.getElementById('title').value
+            const authorBox = document.getElementById('author').value
+            const pdateBox = document.getElementById('pdate').value
+            const tagsBox = document.getElementById('tags').value
+
+            console.log(" title " + titleBox + authorBox + pdateBox + tagsBox);
+
+            console.log( document.getElementById('title').value)
+
+            fetch(`https://bookfinder-backend.herokuapp.com/addBooks`, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    "title": titleBox,
+                    "author": authorBox,
+                    "pdate": pdateBox,
+                    "tags": tagsBox
+                }
+                )
+            });
+
+        }
+        console.log("finished")
+    </script>
+
+    <div>
+        <div className="main-content">
+            <div className="add-books">
+                <h1 className="heading">Add Books</h1>
+                <form className="action-form" onSubmit="fun()">
+                    <p><input className="input-content" type="text" placeholder="Enter Title:" id="title" /></p>
+                    <p><input className="input-content" type="text" placeholder="Enter Author:" id="author" /></p>
+                    <p><input className="input-content" type="text" placeholder="Enter Publish Date:" id="pdate" /></p>
+                    <p><input className="input-content" type="text" placeholder="Enter tags: (Separated using a comma)"
+                            id="tags" /></p>
+                    <p><input className="submit-btn" type="submit" value="Submit"  /></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

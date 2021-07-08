@@ -1,7 +1,6 @@
 import './App.css';
-import React,{useEffect,useState} from "react";
-import Books from './books';
-import headCus from './header.module.css'
+import React from "react";
+
 
 import {Link } from "react-router-dom";
 import logo from './logo.png'
@@ -14,7 +13,7 @@ const Nav = () => {
     <nav>
         <span >
         <Link className="heading1" to="/">
-          <img className="span-logo" src= {logo} />
+          <img className="span-logo" src= {logo} alt="logo"/>
           </Link>
         </span>
         <div className="navhead">
